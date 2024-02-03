@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Cüzdan Uygulaması</title>
+</head>
+<body>
+    <h1>Solana Cüzdan Uygulaması</h1>
+    <label for="command">Komut:</label>
+    <input type="text" id="command" name="command">
+    <button onclick="sendCommand()">Gönder</button>
+
+    <div id="output"></div>
+
+    <script>
+        async function sendCommand() {
+            const commandInput = document.getElementById('command').value.trim();
+
+            const response = await fetch('/command', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ command: commandInput })
+            });
+
+            const result = await response.text();
+            document.getElementById('output').innerText = result;
+        }
+    </script>
+</body>
+</html>
