@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solana Cüzdan Uygulaması</title>
 </head>
-<body>
-    <h1>Solana Cüzdan Uygulaması</h1>
+<body style="display: flex; text-align: center; justify-content: center;">
+    <div style="border: 2px solid rgb(223, 0, 243); width: max-content; padding: 25px; margin-top: 5%;
+    ">
+         
+  
+    <h1 style="color: blueviolet;">Solana Cüzdan Uygulaması</h1>
     <label for="command">Komut:</label>
     <input type="text" id="command" name="command">
-    <button onclick="sendCommand()">Gönder</button>
+    <button style="padding:5px 15px 5px 15px; border-color: blueviolet; border-radius: 40px;" onclick="sendCommand()">Gönder</button>
 
     <div id="output"></div>
+    </div>
 
     <script>
         async function sendCommand() {

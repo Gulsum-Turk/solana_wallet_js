@@ -12,7 +12,7 @@ const app = express();
 const port = 3000;
 
 // verileri yazmak için json dosyasının yolu
-const dataFilePath = './data.json';
+const dataFilePath = './wallet.json';
 
 // cüzdan ve bağlantı tanımlama
 let wallet;
@@ -123,13 +123,14 @@ app.post('/command', async (req, res) => {
     const command = req.body.command;
     let output = '';
 
+    // kontroller
     switch (command.split(' ')[0]) {
         case 'new':
             await createWalletAndSetAsMain();
             output = 'Yeni cüzdan oluşturuldu ve kaydedildi.';
             break;
         case 'balance':
-            output = await checkBalance();
+        output = await checkBalance();
             break;
         case 'airdrop':
             const amount = parseInt(command.split(' ')[1]);
